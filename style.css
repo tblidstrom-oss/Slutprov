@@ -129,7 +129,8 @@ font-size: large;
       animation: fadeInSlide 2s ease-out;
       color: black;
       font-size: 2em;
-      text-align:center ;
+      margin: 0 auto;
+      text-align: center;
     }
 
     @keyframes fadeInSlide {
