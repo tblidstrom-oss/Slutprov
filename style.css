@@ -1,9 +1,9 @@
 :root {
-      --background-color: rgb(182, 176, 176);
+      --background-color: rgb(255, 255, 255);
       --primary-color: #C38E70;
       --secondary-color: #E0A96D;
       --accent-color: #FFFFFF;
-      --text-color: #F2F2F2;
+      --text-color: grey;
     }
 h1{
   color: var(--primary-color);
@@ -20,12 +20,113 @@ h2 {
        color: var(--secondary-color);
       margin-top: 30px;
 }
-header {
+.navbar {
   background-color: var(--primary-color);
-  color: var(--accent-color);
-  padding: 20px;
-  text-align: center;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1000;
 }
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.hamburger {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  z-index: 1001;
+  background: none;
+  border: none;
+  padding: 10px;
+}
+
+.hamburger span {
+  display: block;
+  width: 30px;
+  height: 3px;
+  background-color: var(--accent-color);
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+
+.menu {
+  position: fixed;
+  top: -100%;
+  left: 0;
+  width: 100%;
+  background: var(--accent-color);
+  padding: 60px 20px 20px;
+  transition: top 0.3s ease;
+  z-index: 999;
+}
+
+#menu-toggle:checked ~ .menu {
+  top: 0;
+}
+
+.menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu li {
+  margin: 1rem 0;
+}
+
+.menu a {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-size: 1.2rem;
+  display: block;
+  padding: 0.5rem;
+  transition: color 0.3s ease;
+}
+
+.menu a:hover {
+  color: var(--secondary-color);
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 998;
+}
+
+#menu-toggle:checked ~ .overlay {
+  opacity: 1;
+  visibility: visible;
+}
+
+#menu-toggle:checked ~ .hamburger span:nth-child(1) {
+  transform: translateY(9px) rotate(45deg);
+}
+
+#menu-toggle:checked ~ .hamburger span:nth-child(2) {
+  opacity: 0;
+}
+
+#menu-toggle:checked ~ .hamburger span:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
+}
+
 p {
        color: var(--secondary-color);
       margin-top: 30px;
@@ -72,255 +173,138 @@ p {
     width: auto;
     min-width: 120px;
   }
-
-  #pets:hover {
-    background-color:
-    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-  }
-
-  #pets option {
-    background-color: white;
-    color: black;
-  }
-  .btn.pulse {
-    background-color: var(--primary-color);
-    border-radius: 25px;
-    padding: 10px 20px;
-    border: none;
-    color: white;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    margin-left: auto;
-    display: block;
-  }
-  
-  .btn.pulse:hover {
-    transform: scale(1.05);
-    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-  }
-.content {
-      width: 100%;
-      padding: 20px;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-    }
-
-    .content p, .content ul, .content li, .content h2 {
-      text-align: left;
-      width: 100%;
-      margin-bottom: 1rem;
-      line-height: 1.5;
-    }
-
-    .content h2 {
-      margin-top: 1.5rem;
-      color: var(--primary-color);
-      font-size: 1.5rem;
-    }
-    
-    .content ul {
-      list-style-position: inside;
-      padding-left: 20px;
-    }
-
-    .content li {
-      margin-bottom: 0.5rem;
-    }
-
-.dropdown {
-      position: relative;
-      text-align: right;
-      margin-bottom: 20px;
-      width: 100%;
-    }
-
-    .btn.pulse {
-      position: relative;
-      z-index: 2;
-      float: right;
-    }
-
-    .dropdown-content {
-      display: none;
-      position: absolute;
-      right: 0;
-      top: 45px;
-      background: white;
-      min-width: 200px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      border-radius: 0.5rem;
-      z-index: 1000;
-      pointer-events: none;
-    }
-
-    .btn.pulse:hover ~ .dropdown-content {
-      display: block;
-      pointer-events: auto;
-    }
-
-    .dropdown-content a {
-      color: #333;
-      padding: 12px 16px;
-      text-decoration: none;
-      display: block;
-      transition: all 0.3s ease;
-      font-size: 14px;
-    }
-
-    .dropdown-content a:hover {
-      background-color: #f1f1f1;
-      color: #f44336;
-      padding-left: 20px;
-    }
-/* Removing duplicate styles */
-
-
-.lista { 
-   list-style: square;
-   list-style: symbols(squares);
-  }
-  
-   .nav-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .logo {
-      font-size: 1.5rem;
-      font-weight: bold;
-      color: #667eea;
-    }
-
-    #menu-toggle {
-      display: none;
-    }
-    .hamburger {
-      display: flex;
-      flex-direction: column;
-      cursor: pointer;
-      gap: 6px;
-    }
-
-    .hamburger span {
-      width: 30px;
-      height: 3px;
-      background: #333;
-      border-radius: 3px;
-      transition: all 0.3s ease;
-    }
-
-    .hamburger:hover span {
-      text-decoration: red underline;
-    }
-    .menu {
-   position: fixed;
-   top: -100%;
-   left: 0;
-   width: 100%;
-   background: white;
-   padding: 20px;
-   box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-   transition: top 0.3s ease-in-out;
-}
-#menu-toggle:checked ~ .menu {
-   top: 0;
-   max-height: 400px; 
-   background: white;
-   box-shadow: 2px 5px 15px rgba(0,0,0,0.2); 
-   padding: 80px 20px 20px;
-   transition: top 0.3s ease; 
-   z-index: 999;
-   border-bottom-right-radius: 8px; }
-
-    .menu ul {
-      list-style: none;
-    }
-
-    footer {
-      text-align: left;
-      margin-top: 20px;
-      width: 100%;
-      display: block;
-      font-family: 'Times New Roman', Times, serif;
-      clear: both;
-    }
-
-    .menu li {
-      margin-bottom: 2rem;
-    }
-
-    .menu a {
-      text-decoration: none;
-      color: #333;
-      font-size: 1.2rem;
-      transition: all 0.3s ease;
-    }
-
-    .menu a:hover {
-      color: #eb0808;
-      text-decoration: underline;
-    }
-
-    .hamburger:hover {
-            text-decoration: red underline;
+ .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 0.5rem 1rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: relative;
         }
 
-    .close {
-      position: absolute;
-      top: 1.5rem;
-      right: 2rem;
-      font-size: 2rem;
-      cursor: pointer;
-      color: #333;
-    }
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-    #menu-toggle:checked ~ .menu {
-      top: 0px;
-    }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: 
+        }
 
-    #menu-toggle:checked ~ .hamburger span:nth-child(1) {
-      transform: rotate(45deg) translate(9px, 9px);
-    }
+        .hamburger {
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 0;
+            z-index: 1000;
+        }
 
-    #menu-toggle:checked ~ .hamburger span:nth-child(2) {
-      opacity: 0;
-    }
+        .hamburger span {
+            width: 30px;
+            height: 3px;
+            background: #333;
+            margin: 4px 0;
+            transition: all 0.3s ease;
+            border-radius: 3px;
+        }
 
-    #menu-toggle:checked ~ .hamburger span:nth-child(3) {
-      transform: rotate(-45deg) translate(9px, -9px);
-    }
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(8px, 8px);
+        }
 
-    .overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.5);
-      opacity: 0;
-      visibility: hidden;
-      transition: all 0.3s ease;
-      z-index: 998;
-    }
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
 
-    #menu-toggle:checked ~ .overlay {
-      opacity: 1;
-      visibility: visible;
-    }
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(8px, -8px);
+        }
 
-     .title {
-      animation: fadeInSlide 2s ease-out;
-      color: black;
-      font-size: 2em;
-      margin: 0 auto;
-      text-align: center;
-    }
+        .menu {
+            position: fixed;
+            top: -100%;
+            left: 0;
+            width: 100%;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: top 0.3s ease;
+            z-index: 999;
+            padding-top: 80px;
+        }
 
-    @keyframes fadeInSlide {
+        .menu.active {
+            top: 0;
+        }
+
+        .menu ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .menu li {
+            padding: 0;
+        }
+
+        .menu a {
+            display: block;
+            padding: 1.2rem 2rem;
+            color: #333;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            border-left: 4px solid transparent;
+        }
+
+        .menu a:hover {
+            background: #f0f0f0;
+            border-left-color: #E0A96D;
+            color: #E0A96D;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 998;
+        }
+
+        .overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+ <script>
+        const hamburger = document.getElementById('hamburger');
+        const menu = document.getElementById('menu');
+        const overlay = document.getElementById('overlay');
+        const menuLinks = document.querySelectorAll('.menu a');
+
+        function toggleMenu() {
+            hamburger.classList.toggle('active');
+            menu.classList.toggle('active');
+            overlay.classList.toggle('active');
+        }
+
+        hamburger.addEventListener('click', toggleMenu);
+        overlay.addEventListener('click', toggleMenu);
+
+        menuLinks.forEach(link => {
+            link.addEventListener('click', toggleMenu);
+        });
+    </script>
+
+    <style>
+        @keyframes fadeInSlide {
       from {
         opacity: 0;
         transform: translateY(-20px);
