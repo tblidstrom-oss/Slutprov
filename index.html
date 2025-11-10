@@ -164,11 +164,10 @@
         document.getElementById('stellaForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
-            // Hide form and show thank you message
+          
             this.style.display = 'none';
             document.getElementById('thankYouMessage').style.display = 'block';
             
-            // Scroll to thank you message
             document.getElementById('thankYouMessage').scrollIntoView({ behavior: 'smooth' });
         });
     </script>
