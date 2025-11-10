@@ -34,69 +34,6 @@
             <label for="menu-toggle" class="overlay"></label>
         </div>
     </nav>
-    <script>
-     document.addEventListener('DOMContentLoaded', function() {
-            // Menu functionality
-            const menuToggle = document.getElementById('menu-toggle');
-            const menuLinks = document.querySelectorAll('.menu-list a');
-            
-            menuLinks.forEach(link => {
-                link.addEventListener('click', () => {
-                    menuToggle.checked = false;
-                });
-            });
-
-            // Gallery Carousel functionality
-            const gallery = document.getElementById('gallery');
-            if (gallery) {
-                const carousel = gallery.querySelector('.carousel-container');
-                const slides = gallery.querySelectorAll('.carousel-slide');
-                const prev = gallery.querySelector('.prev');
-                const next = gallery.querySelector('.next');
-                const dotsContainer = gallery.querySelector('.carousel-dots');
-                
-                let currentIndex = 0;
-
-                // Create dots
-                slides.forEach((_, index) => {
-                    const dot = document.createElement('div');
-                    dot.classList.add('dot');
-                    if (index === 0) dot.classList.add('active');
-                    dot.addEventListener('click', () => goToSlide(index));
-                    dotsContainer.appendChild(dot);
-                });
-
-                const dots = gallery.querySelectorAll('.dot');
-
-                function updateDots() {
-                    dots.forEach((dot, index) => {
-                        dot.classList.toggle('active', index === currentIndex);
-                    });
-                }
-
-                function goToSlide(index) {
-                    currentIndex = index;
-                    carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
-                    updateDots();
-                }
-
-                prev.addEventListener('click', () => {
-                    currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-                    goToSlide(currentIndex);
-                });
-
-                next.addEventListener('click', () => {
-                    currentIndex = (currentIndex + 1) % slides.length;
-                    goToSlide(currentIndex);
-                });
-
-                setInterval(() => {
-                    currentIndex = (currentIndex + 1) % slides.length;
-                    goToSlide(currentIndex);
-                }, 5000);
-            }
-        });
-    </script>
   <main>
   <div class="info" id="about">
   <h2>Denna sidas innehåll kommer vara bland annat:</h2>
@@ -155,40 +92,35 @@
     </div>
 
     </section>
-<div class="carousel" id="gallery">
-    <div class="carousel-container">
-        <div class="carousel-slide">
+<div class="bilder" id="gallery">
+    <div class="image-container">
+       
             <img src="20251019_195414.jpg" alt="Stella - En glad Staffordshire Bullterrier" />
             <p class="carousel-caption">Stella tigger mat av husse</p>
         </div>
-        <div class="carousel-slide">
+        <div class="image-container">
             <img src="20250930_155348.jpg" alt="Stella som myser i soffan" />
             <p class="carousel-caption">Stella som ligger i soffan och myser i soffan!</p>
         </div>
-        <div class="carousel-slide">
+        <div class="image-container">
             <img src="20250619_213728.jpg" alt="Stella med leksak" />
             <p class="carousel-caption">Stella busar i trädgården</p>
         </div>
-        <div class="carousel-slide">
+        <div class="image-container">
             <img src="20250531_185313.jpg" alt="Stella med en annan favorit leksak" />
             <p class="carousel-caption">Stella med en favorit leksak</p>
         </div>
-        <div class="carousel-slide">
+        <div class="image-container">
             <img src="Messenger_creation_1C422030-C25A-4F95-8358-1EC08A03BAFD.jpeg" alt="Stella på promenad" />
             <p class="carousel-caption">Stella på med kompis!</p>
         </div>
-        <div class="carousel-slide">
+<div class="image-container">
             <img src="20250828_104309.jpg" alt="Stella busar med Sally" />
             <p class="carousel-caption">Stella busar med kattkompisen Sally</p>
-        </div>
-    </div>
-    <div class="carousel-nav">
-        <div class="prev">&#10094;</div>
-        <div class="next">&#10095;</div>
-    </div>
-    <div class="carousel-dots"></div>
+        
 </div>
 
+    </script>
    </main>
 <footer>
     © 2025 | Stellas sida med kärlek ❤️
