@@ -168,6 +168,25 @@ p {
     margin-left: 5px;
   }
 
+  .image-container {
+    margin: 2rem 0;
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .image-container img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  }
+
+  .image-caption {
+    margin-top: 1rem;
+    color: var(--text-color);
+    font-style: italic;
+  }
+
   #pets {
     background-color: var(--primary-color);
     color: white;
@@ -180,134 +199,110 @@ p {
     width: auto;
     min-width: 120px;
   }
- .navbar {
-            background: rgba(255, 255, 255, 0.95);
-            padding: 0.5rem 1rem;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            position: relative;
-        }
+.title {
+    text-align: center;
+    margin: 0;
+    padding: 1rem 0;
+}
 
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+.hamburger {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1001;
+}
 
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: 
-        }
+.hamburger span {
+    width: 100%;
+    height: 3px;
+    background-color: var(--accent-color);
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
 
-        .hamburger {
-            display: flex;
-            flex-direction: column;
-            cursor: pointer;
-            background: none;
-            border: none;
-            padding: 0;
-            z-index: 1000;
-        }
+/* Menu styles */
+.menu {
+    position: fixed;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    background: var(--accent-color);
+    padding: 60px 20px 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    transition: top 0.3s ease;
+    z-index: 999;
+}
 
-        .hamburger span {
-            width: 30px;
-            height: 3px;
-            background: #333;
-            margin: 4px 0;
-            transition: all 0.3s ease;
-            border-radius: 3px;
-        }
+#menu-toggle:checked ~ .menu {
+    top: 0;
+}
 
-        .hamburger.active span:nth-child(1) {
-            transform: rotate(45deg) translate(8px, 8px);
-        }
+.menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
 
-        .hamburger.active span:nth-child(2) {
-            opacity: 0;
-        }
+.menu li {
+    margin: 0;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+}
 
-        .hamburger.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(8px, -8px);
-        }
+.menu li:last-child {
+    border-bottom: none;
+}
 
-        .menu {
-            position: fixed;
-            top: -100%;
-            left: 0;
-            width: 100%;
-            background: white;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            transition: top 0.3s ease;
-            z-index: 999;
-            padding-top: 80px;
-        }
+.menu a {
+    display: block;
+    padding: 1rem;
+    color: var(--primary-color);
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+}
 
-        .menu.active {
-            top: 0;
-        }
+.menu a:hover {
+    background-color: rgba(0,0,0,0.05);
+    color: var(--secondary-color);
+    padding-left: 1.5rem;
+}
 
-        .menu ul {
-            list-style: none;
-            padding: 0;
-        }
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 998;
+}
 
-        .menu li {
-            padding: 0;
-        }
+#menu-toggle:checked ~ .overlay {
+    opacity: 1;
+    visibility: visible;
+}
 
-        .menu a {
-            display: block;
-            padding: 1.2rem 2rem;
-            color: #333;
-            text-decoration: none;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
-            border-left: 4px solid transparent;
-        }
+#menu-toggle:checked ~ .hamburger span:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+}
 
-        .menu a:hover {
-            background: #f0f0f0;
-            border-left-color: #E0A96D;
-            color: #E0A96D;
-        }
+#menu-toggle:checked ~ .hamburger span:nth-child(2) {
+    opacity: 0;
+}
 
-        .overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-            z-index: 998;
-        }
-
-        .overlay.active {
-            opacity: 1;
-            visibility: visible;
-        }
- <script>
-        const hamburger = document.getElementById('hamburger');
-        const menu = document.getElementById('menu');
-        const overlay = document.getElementById('overlay');
-        const menuLinks = document.querySelectorAll('.menu a');
-
-        function toggleMenu() {
-            hamburger.classList.toggle('active');
-            menu.classList.toggle('active');
-            overlay.classList.toggle('active');
-        }
-
-        hamburger.addEventListener('click', toggleMenu);
-        overlay.addEventListener('click', toggleMenu);
-
-        menuLinks.forEach(link => {
-            link.addEventListener('click', toggleMenu);
-        });
-    </script>
-
-   
+#menu-toggle:checked ~ .hamburger span:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+}
