@@ -147,14 +147,16 @@ h2 {
 #menu-toggle:checked ~ .hamburger span:nth-child(3) {
   transform: translateY(-9px) rotate(-45deg);
 }
-
+h2 {
+  color: var(--secondary-color);
+}
 p {
-       color: var(--secondary-color);
+       color: var(--text-color);
       margin-top: 30px;
 }
 
 .info {
-      color: var(--secondary-color);
+      color: var(--text-color);
       margin-top: 30px;
   } 
 
@@ -258,7 +260,6 @@ p {
     transition: all 0.3s ease;
 }
 
-/* Menu styles */
 .menu {
     position: fixed;
     top: -100%;
