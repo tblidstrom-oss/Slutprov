@@ -475,7 +475,7 @@ p {
         }
 
         .thank-you-message h3 {
-            color: #667eea;
+            color: var(--secondary-color);
             font-size: 1.8rem;
             margin-bottom: 15px;
         }
