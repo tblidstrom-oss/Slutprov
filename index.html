@@ -22,19 +22,32 @@
 
             <div class="menu">
                 <ul class="menu-list">
-                    <li><a href="#home" class="active">Home</a></li>
-                    <li><a href="#about">About</a></li>
+                    <li><a href="#" class="active">Home</a></li>
+                    <li><a href="#gallery">About</a></li>
                     <li><a href="https://www.skk.se/sv/hundraser/staffordshire-bullterrier/" target="_blank" rel="noopener noreferrer">Mer om Staffies</a></li>
-                    <li><a href="index..html second">Kontakt</a></li>
+                    <li><a href="index-second.html">Kontakt</a></li>
                 </ul>
             </div>
 
-            <div class="overlay"></div>
+            <label for="menu-toggle" class="overlay"></label>
         </div>
     </nav>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.getElementById('menu-toggle');
+            const menuLinks = document.querySelectorAll('.menu-list a');
+            
+            // Close menu when clicking a link
+            menuLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    menuToggle.checked = false;
+                });
+            });
+        });
+    </script>
   <main>
     
-  <div class="info">
+  <div class="info" id="about">
   <h2>Denna sidas innehåll kommer vara bland annat:</h2>
   
   <h3><strong> Här kommer lite information som ni kommer att kunna hitta på denna sida!</strong></h3> 
@@ -45,6 +58,7 @@
           <li>Hennes favoritleksaker</li>
           <li>Och mycket mer!</li>
   </ul>
+  </div>
 <h2>Stellas ålder</h2>
   <p>Strella är 1 år gammal</p>
   <h2><strong>Vad hon tycker om att göra?</strong></h2>
@@ -56,7 +70,7 @@
     <li>Busa</li>
     <li> Gå på promenader</li>
   </ul>
-  </div>
+  
   <div class="val">
     <p>Välj ditt djur du äger:</p>
     <select name="pets" id="pets">
@@ -65,19 +79,29 @@
       <option value="Katt">Katt</option>
     </select>
   </div>
-  <div class="image-gallery">
+  <div class="image-gallery" id="gallery">
     <div class="image-container">
       <img src="20251019_195414.jpg" alt="Stella - En glad Staffordshire Bullterrier" />
       <p class="image-caption">Stella tigger mat av husse</p>
     </div>
     
     <div class="image-container">
-      <img src="20250930_155348.jpg" alt="Stella som myser i soffan <p class="image-caption">Stella som ligger i soffan och myser i soffan!</p>
+      <img src="20250930_155348.jpg" alt="Stella som myser i soffan" />
+      <p class="image-caption">Stella som ligger i soffan och myser i soffan!</p>
     </div>
   </div>
-  <div class=" image-container">
-    <img src="20250619_213728.jpg" alt="Stella med leksak" />
-    <p class="image-caption">Stella med en av hennes favoritleksak</p>
+  <div class="toys-gallery">
+    <div class="image-container">
+      <img src="20250619_213728.jpg" alt="Stella med leksak" />
+      <p class="image-caption">Stella med en av hennes favoritleksak</p>
+    </div>
+
+    <div class="image-container">
+      <img src="20250531_185313.jpg" alt="Stella med en annan favorit leksak" />
+      <p class="image-caption">Stella med en annan favorit leksak</p>
+    </div>
+  </div>
+
    </main>
 <footer>
     © 2025 | Stellas sida med kärlek ❤️
