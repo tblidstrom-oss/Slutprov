@@ -5,7 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stella Staffen</title>
     <meta name="author" content="Therese Blidsröm">
-    <link rel="stylesheet" href="'style.css second'">
+    <link rel="stylesheet" href="style.css second">
 </head>
 <body>
-    <h1>Kontakt</h1>
+<h1> 
+    Kontak</h1>
+
+</body>
