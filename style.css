@@ -25,6 +25,10 @@ h2 {
     color: var(--secondary-color);
     margin-top: 30px;
 }
+h3{
+    color: var(--secondary-color);
+    margin-top: 20px;
+}
 
 .navbar {
     background-color: var(--primary-color);
@@ -254,8 +258,9 @@ p {
 }
 
 .toys-gallery {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
     gap: 2rem;
     padding: 2rem;
     max-width: 1200px;
@@ -263,9 +268,8 @@ p {
 }
 
 .toys-gallery .image-container {
-    width: 100%;
-    min-width: 0;
-    margin: 0;
+    flex: 1;
+    max-width: calc(50% - 1rem);
 }
 
 .toys-gallery img {
@@ -283,7 +287,11 @@ p {
 
 @media (max-width: 768px) {
     .toys-gallery {
-        grid-template-columns: 1fr;
+        flex-direction: column;
+    }
+    
+    .toys-gallery .image-container {
+        max-width: 100%;
     }
 }
 
