@@ -250,7 +250,8 @@ li {
 
 div#gallery.carousel {
     position: relative;
-    max-width: 1200px;
+    max-width: 800px;
+    width: 90%;
     margin: 3rem auto;
     overflow: hidden;
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
@@ -262,7 +263,8 @@ div#gallery.carousel {
 div#gallery.carousel .carousel-container {
     display: flex;
     transition: transform 0.5s ease-in-out;
-    height: 500px;
+    height: auto;
+    min-height: 400px;
 }
 
 div#gallery.carousel .carousel-slide {
@@ -271,15 +273,18 @@ div#gallery.carousel .carousel-slide {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     padding: 1rem;
 }
 
 #gallery .carousel-slide img {
     width: 100%;
+    max-width: 600px;
     height: 400px;
     object-fit: contain;
     border-radius: 10px;
     background-color: #f8f8f8;
+    margin: 0 auto;
 }
 
 #gallery .carousel-caption {
@@ -379,16 +384,24 @@ main ul li {
 }
 
 @media (max-width: 768px) {
-    #gallery {
-        margin: 2rem 1rem;
+    div#gallery.carousel {
+        width: 95%;
+        margin: 2rem auto;
+        padding: 0.5rem;
     }
 
     #gallery .carousel-container {
-        height: 400px;
+        min-height: 300px;
+    }
+
+    #gallery .carousel-slide {
+        padding: 0.5rem;
     }
 
     #gallery .carousel-slide img {
         height: 300px;
+        width: 100%;
+        max-width: 100%;
     }
 
     #gallery .prev, 
@@ -396,6 +409,11 @@ main ul li {
         width: 30px;
         height: 30px;
         font-size: 1rem;
+    }
+
+    #gallery .carousel-caption {
+        font-size: 0.9rem;
+        margin-top: 0.5rem;
     }
 }
 
