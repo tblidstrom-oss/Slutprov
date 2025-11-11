@@ -287,7 +287,7 @@ p {
     padding: 1rem 0;
     font-size: 1.8rem;
 }  
-   <style>
+  
         * {
             margin: 0;
             padding: 0;
@@ -376,7 +376,6 @@ p {
                 flex: 1 1 calc(50% - 30px);
             }
         }
-    </style>
 
         .frågor {
             max-width: 700px;
